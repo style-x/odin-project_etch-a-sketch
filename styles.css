@@ -38,6 +38,14 @@ input[type=number]::-webkit-inner-spin-button {
   background-color: darkslategrey;
   width: 100%;
   display: grid;
-  grid-template-columns: 4;
-  grid-template-rows: 4;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 3px;
+  grid-row-gap: 3px;
+}
+
+.grid {
+  background-color: darkorange;
+  display: inline-block;
+  width: 100%;
 }
