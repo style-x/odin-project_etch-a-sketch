@@ -2,25 +2,28 @@
 let num;
 let main = document.getElementById("main");
 let button = document.getElementById("button");
+let grid = document.getElementsByClassName("grid");
+let cw = main.clientWidth;
 
 button.addEventListener("click", () => {
   while (main.firstChild) {
     main.removeChild(main.firstChild);
   }
   num = document.getElementById("number").value;
-  reset(num);
-  //console.log(main.clientWidth)
+  createGrid(num);
+  //console.log(cw);
 });
 
 function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); };
 
 function createGrid(num) {
   test = Number(num);
-  console.log(test);
-  main.style.gridTemplateColumns = "repeat(1fr, 1px)";
+  //console.log(test);
+  main.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
+  main.style.gridTemplateRows = `repeat(${num}, 1fr)`;
   for (let i = 0; i < num; i++) {
     for (let j = 0; j < num; j++) {
-      main.appendChild(createDiv(main.clientWidth / num));
+      main.appendChild(createDiv(cw / num));
     }
   }
 };
@@ -33,14 +36,14 @@ function createDiv(size) {
   return div;
 }
 
-function reset(num) {
-  if (isNumber(num)) {
-    if (num > 100) {
-      main.innerHTML = "Diese Zahl ist zu groß!";  
-    } else {
-      createGrid(num);
-    }
-  } else {
-    main.innerHTML = "Du hast keine Zahl eingegeben.";
-  }
+function paintGrid(el) {
+  if(el.target.classList == 'grid'){
+    let square = el.target;    
+    square.style.backgroundColor = "black";
+  }  
 };
+
+main.addEventListener("mousedown", event => {
+  event.preventDefault();
+  paintGrid(event);
+});

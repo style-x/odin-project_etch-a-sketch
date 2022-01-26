@@ -27,7 +27,7 @@ body {
 }
 
 #button {
-  background-color: indianred;
+  background-color: rgb(255, 0, 0);
 }
 
 input[type=number]::-webkit-inner-spin-button {
@@ -35,17 +35,18 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 #main {
-  background-color: darkslategrey;
-  width: 100%;
+  background-color: rgb(20, 20, 20);
+  width: 90vw;
+  height: 90vw;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 3px;
-  grid-row-gap: 3px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
 }
 
 .grid {
-  background-color: darkorange;
+  background-color: rgb(204, 204, 204);
   display: inline-block;
   width: 100%;
 }
