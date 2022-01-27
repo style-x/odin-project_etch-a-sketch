@@ -11,19 +11,16 @@ button.addEventListener("click", () => {
   }
   num = document.getElementById("number").value;
   createGrid(num);
-  //console.log(cw);
 });
 
 function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); };
 
 function createGrid(num) {
-  test = Number(num);
-  //console.log(test);
   main.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
   main.style.gridTemplateRows = `repeat(${num}, 1fr)`;
   for (let i = 0; i < num; i++) {
     for (let j = 0; j < num; j++) {
-      main.appendChild(createDiv(cw / num));
+      main.appendChild(createDiv(cw / num - 2));
     }
   }
 };
@@ -43,7 +40,8 @@ function paintGrid(el) {
   }  
 };
 
-main.addEventListener("mousedown", event => {
-  event.preventDefault();
-  paintGrid(event);
+main.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  paintGrid(e);
 });
+
